@@ -7,27 +7,21 @@ import { Button } from 'react-bootstrap'
 class App extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
-            bookData: [
-                {
-                    type: 'text',
-                    value: 'Test number 1'
-                },
-                {
-                    type: 'text',
-                    value: 'Test number 2'
-                },
-                {
-                    type: 'text',
-                    value: 'Test number 3'
-                }
-            ],
+            bookData: [],
             index: 0
         }
     }
 
+    componentDidMount() {
+        let storageData = JSON.parse(localStorage.getItem('bookData'))
+
+        if (storageData && storageData !== null)
+            this.setState({bookData: storageData})
+    }
+
     dataHandler = (newData) => {
+        localStorage.setItem('bookData', JSON.stringify(newData))
         this.setState({bookData: newData})
     }
 
@@ -51,7 +45,7 @@ class App extends React.Component {
                         }}>Next</Button>
                     </div>
                     <div>
-                        <AddButton/>
+                        <AddButton data={this.state.bookData} handler={this.dataHandler}/>
                         <DeleteButton/>
                     </div>
                 </div>

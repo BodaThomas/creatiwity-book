@@ -8,7 +8,7 @@ class Book extends React.Component {
     }
 
     render() {
-        if (!this.props.data || this.props.data === null) {
+        if (!this.props.data || this.props.data === null || !this.props.data[this.props.index]) {
             return (
                 <div className="border w-50 h-75 flex" style={{minHeight: '75vh'}}>
                     The book data is empty.
@@ -16,7 +16,7 @@ class Book extends React.Component {
             )
         }
         return (
-            <div className="border w-50 h-75 flex" style={{minHeight: '75vh'}}>
+            <div className="border w-50 h-75 flex" style={{minHeight: '75vh', maxHeight: '75vh', overflow: 'auto'}}>
                 {
                     this.props.data[this.props.index].type === 'image' ?
                         <Image src={this.props.data[this.props.index].value}></Image> :
