@@ -30,23 +30,27 @@ class App extends React.Component {
             <div className="App">
                 <div className="App-header">
                     <Book data={this.state.bookData} index={this.state.index} handler={this.dataHandler}/>
-                    <div>
-                        <Button onClick={() => {
-                            if (this.state.index > 0)
-                                this.setState({index: this.state.index - 1})
-                            else
-                                this.setState({index: this.state.bookData.length - 1})
-                        }}>Previous</Button>
-                        <Button onClick={() => {
-                            if (this.state.index + 1 < this.state.bookData.length)
-                                this.setState({index: this.state.index + 1})
-                            else
-                                this.setState({index: 0})
-                        }}>Next</Button>
-                    </div>
+                    {
+                        this.state.bookData && this.state.bookData.length > 1 ?
+                            <div>
+                                <Button className="m-2" onClick={() => {
+                                    if (this.state.index > 0)
+                                        this.setState({index: this.state.index - 1})
+                                    else
+                                        this.setState({index: this.state.bookData.length - 1})
+                                }}>Previous page</Button>
+                                <Button className="m-2" onClick={() => {
+                                    if (this.state.index + 1 < this.state.bookData.length)
+                                        this.setState({index: this.state.index + 1})
+                                    else
+                                        this.setState({index: 0})
+                                }}>Next page</Button>
+                            </div> :
+                            null
+                    }
                     <div>
                         <AddButton data={this.state.bookData} handler={this.dataHandler}/>
-                        <DeleteButton/>
+                        <DeleteButton data={this.state.bookData} index={this.state.index} handler={this.dataHandler}/>
                     </div>
                 </div>
             </div>

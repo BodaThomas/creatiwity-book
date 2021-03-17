@@ -70,7 +70,7 @@ class AddButton extends React.Component {
                             {
                                 this.state.type === 'image' ?
                                     <Form.Group controlId="value">
-                                        <Form.Label>Image link</Form.Label>
+                                        <Form.Label>Image URL</Form.Label>
                                         <Form.Control type="link" placeholder="http://localhost/toto.jpg" onChange={this.handleChange}/>
                                     </Form.Group> :
                                     null
