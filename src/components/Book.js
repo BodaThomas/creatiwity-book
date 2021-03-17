@@ -16,10 +16,10 @@ class Book extends React.Component {
             )
         }
         return (
-            <div className="border w-50 h-75 flex" style={{minHeight: '75vh', maxHeight: '75vh', overflow: 'auto'}}>
+            <div className="border w-50 h-75 flex" style={{minHeight: '75vh', maxHeight: '75vh', overflow: 'auto', display: 'flex'}}>
                 {
                     this.props.data[this.props.index].type === 'image' ?
-                        <Image src={this.props.data[this.props.index].value}></Image> :
+                        <Image src={this.props.data[this.props.index].value} style={{maxHeight: '100%', maxWidth: '100%', margin: 'auto'}}/> :
                         this.props.data[this.props.index].value
                 }
             </div>

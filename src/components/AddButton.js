@@ -31,7 +31,7 @@ class AddButton extends React.Component {
     
             data.push(newPage)
             this.props.handler(data)
-            this.setState({isOpen: false})
+            this.setState({isOpen: false, type: -1, value: null})
         } else {
             alert('You have to fill all the form before.')
         }

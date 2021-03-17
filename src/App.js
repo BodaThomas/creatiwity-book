@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Book, AddButton, DeleteButton } from './components'
+import { Book, AddButton/*, DeleteButton*/ } from './components'
 import { Button } from 'react-bootstrap'
 
 class App extends React.Component {
@@ -50,7 +50,7 @@ class App extends React.Component {
                     }
                     <div>
                         <AddButton data={this.state.bookData} handler={this.dataHandler}/>
-                        <DeleteButton data={this.state.bookData} index={this.state.index} handler={this.dataHandler}/>
+                        {/* <DeleteButton data={this.state.bookData} index={this.state.index} handler={this.dataHandler}/> */}
                     </div>
                 </div>
             </div>
